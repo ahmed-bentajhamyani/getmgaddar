@@ -1,0 +1,17 @@
+import { NgModule, inject } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './components/login.component';
+import { SignupComponent } from './components/signup.component';
+
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forChild(routes)
+  ],
+  exports: [RouterModule],
+})
+export class AuthModule { }
