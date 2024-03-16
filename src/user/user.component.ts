@@ -8,7 +8,8 @@ import { User } from "./user";
     template: `
     <section class="flex">
         <mg-sidebar></mg-sidebar>
-        <mg-profile></mg-profile>
+        <!-- <mg-profile></mg-profile> -->
+        <router-outlet></router-outlet>
     </section>
     `,
 })

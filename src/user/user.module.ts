@@ -4,10 +4,18 @@ import { NgFor, NgIf } from "@angular/common";
 import { SidebarComponent } from "./components/sidebar.component";
 import { ProfileComponent } from "./components/profil.component";
 import { UserComponent } from "./user.component";
+import { DashboardComponent } from "./components/dashboard.component";
 
 const routes: Routes = [
-    { path: '', component: UserComponent },
-    // { path: 'user', component: UserComponent }
+    {
+        path: '',
+        component: UserComponent,
+        children: [
+            { path: '', component: DashboardComponent },
+            { path: 'profil', component: ProfileComponent }
+        ]
+    },
+
 ];
 
 @NgModule({

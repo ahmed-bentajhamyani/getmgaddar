@@ -28,8 +28,8 @@ import { ProfileInfoComponent } from "./profil-info.component";
         NgSwitch
     ],
     template: `
-    <section class="mt-16 px-10">
-        <section class="flex-row flex justify-between items-center space-x-48">
+    <section class="mt-16 p-6 sm:p-10 flex-grow">
+        <section class="flex flex-row justify-start items-center space-x-56">
             <div class="">
                 <div class="rounded-full shadow-lg p-2 w-52 h-52 mb-4 z-50">
                     <div class="flex justify-center items-center rounded-full w-48 h-48 bg-gray-100 z-50">
