@@ -44,16 +44,6 @@ export class UserService {
         );
     }
 
-    /** DELETE: delete the hero from the server */
-    // deleteUser(id: number): Observable<User> {
-    //     const url = `${this.usersUrl}/${id}`;
-
-    //     return this.httpClient.delete<User>(url, this.httpOptions).pipe(
-    //         tap(_ => this.log(`deleted hero id=${id}`)),
-    //         catchError(this.handleError<User>('deleteHero'))
-    //     );
-    // }
-
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
             console.error(error);

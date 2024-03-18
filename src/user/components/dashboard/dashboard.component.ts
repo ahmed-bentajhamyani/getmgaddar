@@ -49,7 +49,7 @@ export class DashboardComponent {
 
     ngOnInit() {
         this.getState();
-        this.getExercices('chest');
+        this.getExercices('back');
         this.getOpenGyms();
     }
 
