@@ -2,16 +2,16 @@ import { Component, inject } from "@angular/core";
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { AuthService } from "src/auth/auth.service";
-import { UserService } from "../user.service";
-import { User } from "../user";
+import { UserService } from "../../user.service";
+import { User } from "../../user";
 import { NgFor, NgIf } from "@angular/common";
 import { RouterModule } from "@angular/router";
-import { GymCardComponent } from "./gym/gym-card.component";
-import { GymService } from "./gym/gym.service";
-import { Gym } from "./gym/gym";
-import { ExerciseService } from "./exercise/exercise.service";
-import { Exercise } from "./exercise/exercise";
-import { ExerciseCardComponent } from "./exercise/exercise-card.component";
+import { GymCardComponent } from "../gym/gym-card.component";
+import { GymService } from "../gym/gym.service";
+import { Gym } from "../gym/gym";
+import { ExerciseService } from "../exercise/exercise.service";
+import { Exercise } from "../exercise/exercise";
+import { ExerciseCardComponent } from "../exercise/exercise-card.component";
 
 @Component({
     selector: 'mg-dashboard',

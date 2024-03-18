@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { NgFor, NgIf } from "@angular/common";
-import { DashboardComponent } from "./components/dashboard.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { ProfileComponent } from "./components/profil.component";
 import { ExerciseComponent } from "./components/exercise/exercise.component";
 import { GymComponent } from "./components/gym/gym.component";

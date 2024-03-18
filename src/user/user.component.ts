@@ -1,7 +1,4 @@
-import { Component, inject } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
-import { AuthService } from "src/auth/auth.service";
-import { User } from "./user";
+import { Component } from "@angular/core";
 
 @Component({
     selector: 'mg-user',
@@ -31,31 +28,4 @@ import { User } from "./user";
     </mat-drawer-container>
     `,
 })
-export class UserComponent {
-    private readonly authService = inject(AuthService);
-
-    user: User = {
-        id: 0,
-        email: "",
-        name: "Unknown",
-        age: 0,
-        height: 0,
-        weight: 0,
-        targetWeight: 0
-    };
-    
-    infoForm: FormGroup = new FormGroup({
-        height: new FormControl(''),
-        weight: new FormControl('')
-    });
-
-    ngOnInit() {
-        this.getState();
-    }
-
-    getState() {
-        this.authService.getAuthState().subscribe((state) => {
-            if (state?.email) this.user.email = state?.email;
-        });
-    }
-}
+export class UserComponent { }
