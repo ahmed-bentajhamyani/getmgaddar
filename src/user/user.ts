@@ -5,4 +5,5 @@ export interface User {
     age: number;
     height: number;
     weight: number;
+    targetWeight: number;
 }

@@ -33,12 +33,12 @@ import { AuthService } from "src/auth/auth.service";
 
             <li class="w-full mt-2 py-3 rounded-md cursor-pointer select-none transition-all ease-in-out duration-500" (click)="activateClass(3)"
                     [ngClass]="{'text-white bg-rose-500 hover:bg-rose-700' : selectedOne === 3, 'text-gray-800 hover:bg-rose-500 hover:text-white' : selectedOne !== 3}">
-                <span routerLink="dashboard" class="flex justify-start items-center mx-3 w-full"><mat-icon class="mr-2" aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> Settings</span>
+                <span routerLink="dashboard" class="flex justify-start items-center mx-3 w-full"><mat-icon class="mr-2" aria-hidden="false" aria-label="Example directions_run icon" fontIcon="directions_run"></mat-icon> Exercises</span>
             </li>
 
             <li class="w-full mt-2 py-3 rounded-md cursor-pointer select-none transition-all ease-in-out duration-500" (click)="activateClass(4)"
                 [ngClass]="{'text-white bg-rose-500 hover:bg-rose-700' : selectedOne === 4, 'text-gray-800 hover:bg-rose-500 hover:text-white' : selectedOne !== 4}">
-                <span routerLink="articles" class="flex justify-start items-center mx-3 w-full"><mat-icon class="mr-2" aria-hidden="false" aria-label="Example table_chart icon" fontIcon="table_chart"></mat-icon> Help</span>
+                <span routerLink="articles" class="flex justify-start items-center mx-3 w-full"><mat-icon class="mr-2" aria-hidden="false" aria-label="Example directions_run icon" fontIcon="directions_run"></mat-icon> Open Gyms</span>
             </li>
         </ul>
         
@@ -68,6 +68,12 @@ export class SidebarComponent {
                 break;
             case 2:
                 this.router.navigate(['/user/profil']);
+                break;
+            case 3:
+                this.router.navigate(['/user/exercises']);
+                break;
+            case 4:
+                this.router.navigate(['/user/gyms']);
                 break;
             default:
                 this.router.navigate(['/user']);
