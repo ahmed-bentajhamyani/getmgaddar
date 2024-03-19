@@ -12,16 +12,17 @@ export class ExerciseService {
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     });
 
+    headersObject: Record<string, string> = {};
+
     async getBodyPartList(): Promise<string[]> {
-        const headersObject: Record<string, string> = {};
         this.headers.keys().forEach(key => {
-            headersObject[key] = this.headers.get(key) || '';
+            this.headersObject[key] = this.headers.get(key) || '';
         });
 
         try {
             const response = await fetch(this.url + 'bodyPartList', {
                 method: 'GET',
-                headers: headersObject
+                headers: this.headersObject
             });
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -34,15 +35,14 @@ export class ExerciseService {
     }
 
     async getExercices(muscle: string): Promise<Exercise[]> {
-        const headersObject: Record<string, string> = {};
         this.headers.keys().forEach(key => {
-            headersObject[key] = this.headers.get(key) || '';
+            this.headersObject[key] = this.headers.get(key) || '';
         });
 
         try {
             const response = await fetch(this.url + 'bodyPart/' + muscle, {
                 method: 'GET',
-                headers: headersObject
+                headers: this.headersObject
             });
             if (!response.ok) {
                 throw new Error('Network response was not ok');

@@ -6,7 +6,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { AuthService } from "src/auth/auth.service";
 import { User } from "src/user/user";
-import { SidebarComponent } from "./sidebar.component";
+import { SidebarComponent } from "../sidebar.component";
 import { EditProfilInfoComponent } from "./edit-profil-info.component";
 import { UserService } from "src/user/user.service";
 import { filter, map, tap } from "rxjs";
@@ -42,7 +42,7 @@ import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 
             <div class='mb-8'>
                 <div class="flex justify-start items-center space-x-5 -mb-2">
-                    <p class='mb-10 font-bold text-4xl'>{{user.name}}<span *ngIf="user.age !== 0">, {{user.age}}</span></p>
+                    <p class='mb-10 font-bold text-4xl'>{{user.name}}<span *ngIf="user.age > 0">, {{user.age}}</span></p>
                     <mat-icon aria-hidden="false" aria-label="Example edit icon" class="text-rose-500 cursor-pointer mb-3 scale-150"
                     fontIcon="edit" (click)="openDialog()"></mat-icon>
                 </div>
@@ -100,6 +100,7 @@ export class ProfileComponent {
         this.userService.getUsers().subscribe(users => {
             const user = users.find(user => user.email == email);
             user ? this.user = user : console.log('User not found!');
+            // console.log(user)
         });
 
         // .pipe(

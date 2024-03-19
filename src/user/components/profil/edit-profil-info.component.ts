@@ -1,7 +1,7 @@
 import { Component, Inject, inject } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
-import { User } from "../user";
-import { UserService } from "../user.service";
+import { User } from "../../user";
+import { UserService } from "../../user.service";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
