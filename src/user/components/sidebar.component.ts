@@ -33,12 +33,12 @@ import { AuthService } from "src/auth/auth.service";
 
             <a routerLink="/user/exercises" class="w-full mt-2 py-3 rounded-md cursor-pointer select-none transition-all ease-in-out duration-500" (click)="activateClass(3)"
                     [ngClass]="{'text-white bg-rose-500 hover:bg-rose-700' : selectedOne === 3, 'text-gray-800 hover:bg-rose-500 hover:text-white' : selectedOne !== 3}">
-                <span routerLink="dashboard" class="flex justify-start items-center mx-3 w-full"><mat-icon class="mr-2" aria-hidden="false" aria-label="Example directions_run icon" fontIcon="directions_run"></mat-icon> Exercises</span>
+                <span class="flex justify-start items-center mx-3 w-full"><mat-icon class="mr-2" aria-hidden="false" aria-label="Example directions_run icon" fontIcon="directions_run"></mat-icon> Exercises</span>
             </a>
 
             <a routerLink="/user/gyms" class="w-full mt-2 py-3 rounded-md cursor-pointer select-none transition-all ease-in-out duration-500" (click)="activateClass(4)"
                 [ngClass]="{'text-white bg-rose-500 hover:bg-rose-700' : selectedOne === 4, 'text-gray-800 hover:bg-rose-500 hover:text-white' : selectedOne !== 4}">
-                <span routerLink="articles" class="flex justify-start items-center mx-3 w-full"><mat-icon class="mr-2" aria-hidden="false" aria-label="Example directions_run icon" fontIcon="directions_run"></mat-icon> Open Gyms</span>
+                <span class="flex justify-start items-center mx-3 w-full"><mat-icon class="mr-2" aria-hidden="false" aria-label="Example calendar_view_day icon" fontIcon="calendar_view_day"></mat-icon> Open Gyms</span>
             </a>
         </ul>
         

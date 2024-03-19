@@ -33,7 +33,7 @@ import { MatDialog, MatDialogModule } from "@angular/material/dialog";
             <p class="text-4xl font-semibold mb-2">Profil</p>
             <p class="text-gray-600 ml-0.5">Your profil information</p>
         </div>
-        <section class="flex justify-start items-center space-x-10">
+        <section class="md:flex justify-start items-center space-x-10">
             <div class="rounded-full shadow-lg p-2 w-52 h-52 mb-4 z-50">
                 <div class="flex justify-center items-center rounded-full w-48 h-48 bg-gray-100 z-50">
                     <img class="rounded-full" src="../../../assets/profil.jpg" alt="" width="208px" />
@@ -100,15 +100,6 @@ export class ProfileComponent {
         this.userService.getUsers().subscribe(users => {
             const user = users.find(user => user.email == email);
             user ? this.user = user : console.log('User not found!');
-            // console.log(user)
         });
-
-        // .pipe(
-        //     map((u) => {
-        //         const user = u.find(user => user.email == email);
-        //         console.log(user)
-        //         user ? this.user = user : console.log('User not found!');
-        //     })
-        // )
     }
 }

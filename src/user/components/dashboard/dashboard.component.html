@@ -34,7 +34,7 @@
             <div>
                 <p class="font-bold text-base !mb-0">30 days weight loss challenge</p>
             </div>
-            <div class="grid grid-cols-2 gap-1 justify-items-start items-center">
+            <div class="grid md:grid-cols-2 gap-1 justify-items-start items-center">
                 <mat-card class="!bg-rose-400 !text-white !rounded-lg !shadow mt-5">
                     <mat-card-header>
                         <div mat-card-avatar
@@ -69,7 +69,7 @@
                     class="flex justify-center items-center border-2 border-rose-500 text-center p-2 rounded-md hover:text-white hover:bg-rose-500 transition-all ease-in-out duration-500">
                     View more</a>
             </div>
-            <div class="grid grid-cols-2 gap-x-6">
+            <div class="grid md:grid-cols-2 gap-x-6">
                 <ng-container *ngFor="let exercise of exercises">
                     <mg-exercise-card [exercise]="exercise"></mg-exercise-card>
                 </ng-container>
@@ -83,7 +83,7 @@
                     class="flex justify-center items-center border-2 border-rose-500 text-center p-2 rounded-md hover:text-white hover:bg-rose-500 transition-all ease-in-out duration-500">
                     View more</a>
             </div>
-            <div class="grid grid-cols-2 gap-x-6">
+            <div class="grid md:grid-cols-2 gap-x-6">
                 <ng-container *ngFor="let gym of openGyms">
                     <mg-gym-card [gym]="gym"></mg-gym-card>
                 </ng-container>

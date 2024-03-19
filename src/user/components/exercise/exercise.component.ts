@@ -4,7 +4,6 @@ import { ExerciseCardComponent } from "./exercise-card.component";
 import { NgFor } from "@angular/common";
 import { Exercise } from "./exercise";
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
     selector: 'mg-exercice',
@@ -20,11 +19,10 @@ import { FormControl, FormGroup } from "@angular/forms";
             <p class="text-4xl font-semibold mb-2">Exercises</p>
             <p class="text-gray-600 ml-0.5">Your body workout planner</p>
         </div>
-        <form action=""></form>
         <mat-button-toggle-group name="bodyPart" aria-label="body part" value="back" (valueChange)="onSelectionChange($event)">
-        <ng-container *ngFor="let bodyPart of bodyPartList">
-            <mat-button-toggle value={{bodyPart}}>{{bodyPart}}</mat-button-toggle>
-        </ng-container>
+            <ng-container *ngFor="let bodyPart of bodyPartList">
+                <mat-button-toggle value={{bodyPart}}>{{bodyPart}}</mat-button-toggle>
+            </ng-container>
         </mat-button-toggle-group>
         <div class="grid md:grid-cols-2 2xl:grid-cols-3 gap-6">
             <ng-container *ngFor="let exercise of exercises">
