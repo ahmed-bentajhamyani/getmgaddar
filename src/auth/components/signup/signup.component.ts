@@ -62,7 +62,7 @@ export class SignupComponent {
   }
 
   addUser(email: string) {
-    this.userService.addUser({ email } as User).subscribe((user) => {
+    this.userService.addUser({ email, name: 'Unknown', age: 0, height: 0, weight: 0, targetWeight: 0 } as User).subscribe((user) => {
       if (user) this.router.navigate(['user']);
     });
   }

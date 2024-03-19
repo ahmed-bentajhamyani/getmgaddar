@@ -64,8 +64,8 @@ export class DashboardComponent {
 
     getUser(email: string) {
         this.userService.getUsers().subscribe(users => {
-            const user = users.find(user => user.email == email);
-            user ? this.user = user : console.log('User not found!');
+            const lookupUser = users.find(user => user.email == email);
+            lookupUser ? this.user = lookupUser : console.log('User not found!');
         });
     }
 
