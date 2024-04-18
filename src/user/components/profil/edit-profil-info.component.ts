@@ -71,12 +71,12 @@ export class EditProfilInfoComponent {
     }
 
     onSubmit() {
+
         this.user.name = this.infoForm.get('name')?.value;
         this.user.age = this.infoForm.get('age')?.value;
         this.user.height = this.infoForm.get('height')?.value;
         this.user.targetWeight = this.infoForm.get('target_weight')?.value;
 
-        this.userService.updateUser(this.user);
-
+        this.userService.updateUser(this.user).subscribe()
     }
 }
