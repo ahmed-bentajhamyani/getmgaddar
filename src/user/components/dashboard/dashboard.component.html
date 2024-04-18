@@ -3,7 +3,7 @@
         <p class="text-4xl font-semibold mb-2">Dashboard</p>
         <p class="text-gray-600 ml-0.5">Everything you need to stay fit</p>
     </div>
-    <section class="grid md:grid-cols-2 gap-6">
+    <section class="grid lg:grid-cols-2 lg:gap-6">
         <!-- Profil Information -->
         <mat-card class="!rounded-lg !shadow mt-5 p-4">
             <div class="flex justify-between items-center">
@@ -34,8 +34,8 @@
             <div>
                 <p class="font-bold text-base !mb-0">30 days weight loss challenge</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-1 justify-items-start items-center">
-                <mat-card class="!bg-rose-400 !text-white !rounded-lg !shadow mt-5">
+            <div class="grid md:grid-cols-2 md:gap-1 justify-items-start items-center">
+                <mat-card class="!bg-rose-400 !text-white !rounded-lg !shadow mt-5 !w-full">
                     <mat-card-header>
                         <div mat-card-avatar
                             class="example-header-image flex justify-center items-center rounded-full border-2 border-white !p-0.5">
@@ -46,7 +46,7 @@
                             'Not yet'}}</mat-card-subtitle>
                     </mat-card-header>
                 </mat-card>
-                <mat-card class="!bg-rose-400 !text-white !rounded-lg !shadow mt-5">
+                <mat-card class="!bg-rose-400 !text-white !rounded-lg !shadow mt-2 md:mt-5 !w-full">
                     <mat-card-header>
                         <div mat-card-avatar
                             class="example-header-image flex justify-center items-center rounded-full border-2 border-white !p-0.5">
@@ -60,7 +60,7 @@
             </div>
         </mat-card>
     </section>
-    <section class="grid md:grid-cols-2 gap-6">
+    <section class="grid md:grid-cols-2 lg:gap-6">
         <!-- Exercises -->
         <mat-card class="md:col-span-2 md:row-span-2 !rounded-lg !shadow mt-5 p-4">
             <div class="flex justify-between items-center">
@@ -69,7 +69,7 @@
                     class="flex justify-center items-center border-2 border-rose-500 text-center p-2 rounded-md hover:text-white hover:bg-rose-500 transition-all ease-in-out duration-500">
                     View more</a>
             </div>
-            <div class="grid md:grid-cols-2 gap-x-6">
+            <div class="grid lg:grid-cols-2 gap-x-6">
                 <ng-container *ngFor="let exercise of exercises">
                     <mg-exercise-card [exercise]="exercise"></mg-exercise-card>
                 </ng-container>
@@ -83,7 +83,7 @@
                     class="flex justify-center items-center border-2 border-rose-500 text-center p-2 rounded-md hover:text-white hover:bg-rose-500 transition-all ease-in-out duration-500">
                     View more</a>
             </div>
-            <div class="grid md:grid-cols-2 gap-x-6">
+            <div class="grid lg:grid-cols-2 gap-x-6">
                 <ng-container *ngFor="let gym of openGyms">
                     <mg-gym-card [gym]="gym"></mg-gym-card>
                 </ng-container>
