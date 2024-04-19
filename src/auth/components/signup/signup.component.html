@@ -7,24 +7,26 @@
             <mat-form-field class="mt-2" appearance="outline">
                 <mat-label>Email</mat-label>
                 <input matInput type="email" id="email" formControlName="email" placeholder="example@example.com">
-                <mat-error
-                    *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched"
+                    data-cy="email-error-msg">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
 
             <mat-form-field class="mt-2" appearance="outline">
                 <mat-label>Enter your password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide" class="p-1">
+                    [attr.aria-pressed]="hide" class="p-1" data-cy="hide-password-btn">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
-                <mat-error
-                    *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched"
+                    data-cy="password-error-msg">Password is required.</mat-error>
             </mat-form-field>
+
+            <mat-error *ngIf="error.length > 0" data-cy="signup-error-msg">{{error}}</mat-error>
 
             <button mat-raised-button type="submit"
                 class="w-full bg-rose-500 text-white shadow-md py-3 mt-2 mb-3 rounded-md hover:bg-rose-700 disabled:bg-rose-200 transition-all ease-in-out duration-300"
-                [disabled]="signupForm.invalid">Signup</button>
+                [disabled]="signupForm.invalid" data-cy="submit-btn">Signup</button>
 
             <p class="text-sm">Already have an account? <a routerLink="/auth/login"
                     class="cursor-pointer text-blue-500 underline select-none">Login</a></p>

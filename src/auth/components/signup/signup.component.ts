@@ -31,6 +31,8 @@ export class SignupComponent {
     password: new FormControl('', [Validators.required])
   });
 
+  error: string = '';
+
   getErrorMessage() {
     if (this.signupForm.get('email')?.errors?.['required']) {
       return 'Email is required.';
@@ -38,27 +40,26 @@ export class SignupComponent {
     if (this.signupForm.get('email')?.errors?.['email']) {
       return 'Invalid email format.';
     }
-    if (this.signupForm.get('password')?.errors?.['required']) {
-      return 'Password is required.';
-    }
     return '';
   }
 
   onSubmit() {
     if (this.signupForm.valid) {
-      console.log(this.signupForm.value);
       this.signup(this.signupForm.get('email')?.value, this.signupForm.get('password')?.value);
     }
   }
 
-  signup(email: string, password: string) {
+  async signup(email: string, password: string) {
     this.authService.signup(email, password)
       .then(
         () => {
           console.log('signedUp')
           this.addUser(email);
         }
-      );
+      )
+      .catch((error) => {
+        this.error = error.message.replace("Firebase: ", "");
+      });
   }
 
   addUser(email: string) {
