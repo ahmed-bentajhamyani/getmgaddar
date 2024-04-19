@@ -26,6 +26,8 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required])
   });
 
+  error: string = '';
+
   getErrorMessage() {
     if (this.loginForm.get('email')?.errors?.['required']) {
       return 'Email is required.';
@@ -33,15 +35,11 @@ export class LoginComponent {
     if (this.loginForm.get('email')?.errors?.['email']) {
       return 'Invalid email format.';
     }
-    if (this.loginForm.get('password')?.errors?.['required']) {
-      return 'Password is required.';
-    }
     return '';
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
       this.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value);
     }
   }
@@ -50,9 +48,11 @@ export class LoginComponent {
     this.authService.login(email, password)
       .then(
         () => {
-          console.log('loggedIn')
           this.router.navigate(['user'])
         }
-      );
+      )
+      .catch((_) => {
+        this.error = "Invalid login credentials!";
+      });
   }
 }

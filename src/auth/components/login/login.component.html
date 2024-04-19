@@ -6,25 +6,26 @@
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="flex flex-col w-full">
             <mat-form-field class="mt-2" appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput type="email" id="email" formControlName="email" placeholder="example@example.com">
-                <mat-error
-                    *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">{{getErrorMessage()}}</mat-error>
+                <input matInput type="email" id="email" formControlName="email" placeholder="example@example.com" />
+                <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+                    data-cy="email-error-msg">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
 
             <mat-form-field class="mt-2" appearance="outline">
-                <mat-label>Enter your password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide" class="p-1">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+                <button mat-icon-button matSuffix (click)="hide = !hide" class="p-1" data-cy="hide-password-btn">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
-                <mat-error
-                    *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                    data-cy="password-error-msg">Password is required.</mat-error>
             </mat-form-field>
+
+            <mat-error *ngIf="error.length > 0" data-cy="login-error-msg">{{error}}</mat-error>
 
             <button mat-raised-button type="submit"
                 class="w-full bg-rose-500 text-white shadow-md py-3 mt-2 mb-3 rounded-md hover:bg-rose-700 disabled:bg-rose-200 transition-all ease-in-out duration-300"
-                [disabled]="loginForm.invalid">Login</button>
+                [disabled]="loginForm.invalid" data-cy="submit-btn">Login</button>
 
             <p class="text-sm">Don't have an account? <a routerLink="/auth/signup"
                     class="cursor-pointer text-blue-500 underline select-none">Signup</a></p>
