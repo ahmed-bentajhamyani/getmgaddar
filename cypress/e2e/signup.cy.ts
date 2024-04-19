@@ -1,4 +1,10 @@
 describe('Signup page', () => {
+    after(() => {
+        cy.login("ahmedbentaj710@gmail.ma", "12345678")
+
+        cy.get('[data-cy="delete-user-btn"]').click()
+    })
+
     it('should show error message when email is missing', () => {
         cy.visit('/auth/signup')
 
@@ -33,15 +39,7 @@ describe('Signup page', () => {
     });
 
     it('should redirect to user dashboard when provided infos are perfect', () => {
-        // generate random email for test
-        var chars = 'abcdefghijklmnopqrstuvwxyz1234567890';
-        var string = '';
-        for (var i = 0; i < 10; i++) {
-            string += chars[Math.floor(Math.random() * chars.length)];
-        }
-        const randomEmail = string + '@domain.com';
-
-        cy.signup(randomEmail, "12345678")
+        cy.signup("ahmedbentaj710@gmail.ma", "12345678")
 
         cy.url().should('include', '/user');
     });
