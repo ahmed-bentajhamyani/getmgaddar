@@ -8,7 +8,7 @@ import { Exercise } from "./exercise";
 export class ExerciseService {
     url = 'https://exercisedb.p.rapidapi.com/exercises/';
     headers = new HttpHeaders({
-        'X-RapidAPI-Key': '701100e0b7msh92c97be9efb3125p109713jsn3e12c60c7648',
+        'X-RapidAPI-Key': 'cf45e3e9d8msh19d0c931f96ca0ep15ba15jsnd497d0e47a41',
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     });
 
