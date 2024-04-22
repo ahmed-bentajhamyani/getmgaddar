@@ -4,7 +4,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { AuthService } from "src/auth/auth.service";
 import { UserService } from "../../user.service";
 import { User } from "../../user";
-import { NgFor, NgIf } from "@angular/common";
+import { NgFor, NgIf, NgTemplateOutlet } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { GymCardComponent } from "../gym/gym-card.component";
 import { GymService } from "../gym/gym.service";
@@ -24,6 +24,7 @@ import { ExerciseCardComponent } from "../exercise/exercise-card.component";
         GymCardComponent,
         NgIf,
         NgFor,
+        NgTemplateOutlet
     ],
     templateUrl: './dashboard.component.html'
 })

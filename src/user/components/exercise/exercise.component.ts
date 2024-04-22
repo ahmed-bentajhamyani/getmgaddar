@@ -1,7 +1,7 @@
 import { Component, inject } from "@angular/core";
 import { ExerciseService } from "./exercise.service";
 import { ExerciseCardComponent } from "./exercise-card.component";
-import { NgFor } from "@angular/common";
+import { NgFor, NgTemplateOutlet } from "@angular/common";
 import { Exercise } from "./exercise";
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
@@ -11,7 +11,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     imports: [
         ExerciseCardComponent,
         MatButtonToggleModule,
-        NgFor
+        NgFor,
+        NgTemplateOutlet
     ],
     template: `
     <section class="p-6 sm:p-10 space-y-6">
@@ -24,11 +25,20 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
                 <mat-button-toggle value={{bodyPart}}>{{bodyPart}}</mat-button-toggle>
             </ng-container>
         </mat-button-toggle-group>
-        <div class="grid md:grid-cols-2 2xl:grid-cols-3 gap-6">
-            <ng-container *ngFor="let exercise of exercises">
-                <mg-exercise-card [exercise]="exercise"></mg-exercise-card>
-            </ng-container>
-        </div>
+
+        <ng-template #exercisesNotFound>
+            <div class="flex items-center justify-center !mt-60">
+                <p class="text-lg whitespace-nowrap" data-cy="failure-msg">No exercise found.</p>
+            </div>
+        </ng-template>
+        <ng-template #exercisesFound>
+            <div class="grid md:grid-cols-2 2xl:grid-cols-3 gap-6">
+                <ng-container *ngFor="let exercise of exercises">
+                    <mg-exercise-card [exercise]="exercise"></mg-exercise-card>
+                </ng-container>
+            </div>
+        </ng-template>
+        <ng-container *ngTemplateOutlet="exercises.length > 0 ? exercisesFound : exercisesNotFound"></ng-container>
     </section>
     `
 })
@@ -43,20 +53,17 @@ export class ExerciseComponent {
     }
 
     onSelectionChange(selectedValue: string) {
-        console.log('Selected Value:', selectedValue);
         this.getExercices(selectedValue);
     }
 
     getBodyPartList() {
         this.exerciseService.getBodyPartList().then(res => {
-            console.log(res)
             this.bodyPartList = res;
         })
     }
 
     getExercices(muscle: string) {
         this.exerciseService.getExercices(muscle).then(res => {
-            console.log(res)
             this.exercises = res;
         })
     }
