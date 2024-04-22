@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
+import { Router } from "@angular/router";
+import { AuthService } from "src/auth/auth.service";
 
 @Component({
     selector: 'mg-user',
@@ -14,13 +16,8 @@ import { Component } from "@angular/core";
                     <mat-icon>menu</mat-icon>
                 </button>
 
-                <div class="">
-                    <button mat-icon-button class="example-icon favorite-icon mx-3" aria-label="Example icon-button with heart icon">
-                        <mat-icon>favorite</mat-icon>
-                    </button>
-                    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-                        <mat-icon>share</mat-icon>
-                    </button>
+                <div class="example-button-row">
+                    <button mat-button color="primary" class="text-sm" (click)="deleteUser()" data-cy="delete-user-btn">Delete account</button>
                 </div>
             </mat-toolbar>
             <router-outlet></router-outlet>
@@ -28,4 +25,16 @@ import { Component } from "@angular/core";
     </mat-drawer-container>
     `,
 })
-export class UserComponent { }
+export class UserComponent {
+    private readonly authService = inject(AuthService);
+    private readonly router = inject(Router);
+
+    deleteUser() {
+        this.authService.getAuthState()
+            .subscribe((authState) => {
+                authState?.delete()
+                    .then(_ => this.router.navigate(['/auth/signup']))
+                    .catch(e => console.error(e))
+            });
+    }
+}
