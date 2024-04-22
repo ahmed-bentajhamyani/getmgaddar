@@ -5,7 +5,7 @@ import { UserService } from "../../user.service";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
-import { MAT_DIALOG_DATA, MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 
 @Component({
     selector: 'mg-edit-profil-info',
@@ -42,7 +42,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogModule } from '@angular/material/d
             </mat-form-field>
             <mat-form-field class="mt-2" appearance="outline">
                 <mat-label>Target Weight</mat-label>
-                <input matInput type="number" id="target_weight" formControlName="target_weight">
+                <input matInput type="number" id="target-weight" formControlName="target-weight">
                 <mat-hint>Target Weight in kg</mat-hint>
             </mat-form-field>
             <button mat-raised-button mat-dialog-close type="submit"
@@ -62,11 +62,11 @@ export class EditProfilInfoComponent {
     ngOnInit() {
         console.log(this.user);
         this.infoForm = new FormGroup({
-            name: new FormControl(this.user?.name),
-            age: new FormControl(this.user?.age),
-            height: new FormControl(this.user?.height),
-            weight: new FormControl(this.user?.weight),
-            target_weight: new FormControl(this.user?.targetWeight)
+            "name": new FormControl(this.user?.name),
+            "age": new FormControl(this.user?.age),
+            "height": new FormControl(this.user?.height),
+            "weight": new FormControl(this.user?.weight),
+            "target-weight": new FormControl(this.user?.targetWeight)
         });
     }
 
@@ -75,7 +75,8 @@ export class EditProfilInfoComponent {
         this.user.name = this.infoForm.get('name')?.value;
         this.user.age = this.infoForm.get('age')?.value;
         this.user.height = this.infoForm.get('height')?.value;
-        this.user.targetWeight = this.infoForm.get('target_weight')?.value;
+        this.user.weight = this.infoForm.get('weight')?.value;
+        this.user.targetWeight = this.infoForm.get('target-weight')?.value;
 
         this.userService.updateUser(this.user).subscribe()
     }

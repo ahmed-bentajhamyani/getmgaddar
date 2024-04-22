@@ -9,7 +9,7 @@
             <div class="flex justify-between items-center">
                 <p class="font-bold text-base !m-0">Profil Information</p>
                 <a routerLink="/user/profil"
-                    class="flex justify-center items-center border-2 border-rose-500 text-center p-2 rounded-md hover:text-white hover:bg-rose-500 transition-all ease-in-out duration-500">
+                    class="flex justify-center items-center border-2 border-rose-500 text-center p-2 rounded-md hover:text-white hover:bg-rose-500 transition-all ease-in-out duration-500" data-cy="view-more-user">
                     View more</a>
             </div>
             <div class="flex justify-start items-center space-x-5 mt-3">
@@ -21,7 +21,7 @@
                 <div class="">
                     <p class='font-bold text-lg !mb-0'>{{user.name}}<span *ngIf="user.age !== 0">, {{user.age}}</span>
                     </p>
-                    <p class='font-normal text-md !mb-1'>{{user.email}}</p>
+                    <p class='font-normal text-md !mb-1' data-cy="user-email">{{user.email}}</p>
                     <span class="tracking-tight truncate font-light mr-3">Height : {{user.height ? user.height + ' cm' :
                         'Not yet'}}<span class="font-semibold"></span></span>
                     <span class="tracking-tight truncate font-light">Weight : {{user.weight ? user.weight + ' kg' :

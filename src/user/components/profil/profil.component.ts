@@ -42,18 +42,27 @@ import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 
             <div class='mb-8'>
                 <div class="flex justify-start items-center space-x-5 -mb-2">
-                    <p class='mb-10 font-bold text-4xl'>{{user.name}}<span *ngIf="user.age > 0">, {{user.age}}</span></p>
-                    <mat-icon aria-hidden="false" aria-label="Example edit icon" class="text-rose-500 cursor-pointer mb-3 scale-150"
-                    fontIcon="edit" (click)="openDialog()"></mat-icon>
+                    <p class='mb-10 font-bold text-4xl'>
+                        <span data-cy="user-name">{{user.name}}</span>
+                        <span *ngIf="user.age > 0">, <span data-cy="user-age">{{user.age}}</span></span>
+                    </p>
+                    
+                    <button (click)="openDialog()" data-cy="edit-user-btn">
+                        <mat-icon aria-hidden="false" aria-label="Example edit icon" class="text-rose-500 cursor-pointer mb-3 scale-150"
+                        fontIcon="edit"></mat-icon>
+                    </button>
                 </div>
-                <p class='text-base font-light'>{{user.email}}</p>
+                <p class='text-base font-light' data-cy="user-email">{{user.email}}</p>
 
-                <p class="font-medium text-sm">Height : <span class="font-light text-sm">{{user.height ? user.height + ' cm' :
-                        'Not yet'}}</span></p>
-                <p class="font-medium text-sm">Current weight : <span class="font-light text-sm">{{user.weight ? user.weight + ' kg' :
-                        'Not yet'}}</span></p>
-                <p class="font-medium text-sm">Target weight : <span class="font-light text-sm">{{user.targetWeight ? user.targetWeight + ' kg' :
-                'Not yet'}}</span></p>
+                <p class="font-medium text-sm">
+                    Height : <span class="font-light text-sm" data-cy="user-height">{{user.height ? user.height + ' cm' : 'Not yet'}}</span>
+                </p>
+                <p class="font-medium text-sm">
+                    Current weight : <span class="font-light text-sm" data-cy="user-weight">{{user.weight ? user.weight + ' kg' : 'Not yet'}}</span>
+                </p>
+                <p class="font-medium text-sm">
+                    Target weight : <span class="font-light text-sm" data-cy="user-target-weight">{{user.targetWeight ? user.targetWeight + ' kg' : 'Not yet'}}</span>
+                </p>
             </div>
     </section>
     `,
