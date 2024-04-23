@@ -47,7 +47,7 @@ import { MatDialog, MatDialogModule } from "@angular/material/dialog";
                         <span *ngIf="user.age > 0">, <span data-cy="user-age">{{user.age}}</span></span>
                     </p>
                     
-                    <button (click)="openDialog()" data-cy="edit-user-btn">
+                    <button (click)="openEditDialog()" data-cy="edit-user-btn">
                         <mat-icon aria-hidden="false" aria-label="Example edit icon" class="text-rose-500 cursor-pointer mb-3 scale-150"
                         fontIcon="edit"></mat-icon>
                     </button>
@@ -72,7 +72,7 @@ export class ProfileComponent {
     private readonly userService = inject(UserService);
     public readonly dialog = inject(MatDialog);
 
-    openDialog() {
+    openEditDialog() {
         const dialogRef = this.dialog.open(EditProfilInfoComponent, {
             data: this.user,
         });
