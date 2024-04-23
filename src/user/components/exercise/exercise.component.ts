@@ -32,7 +32,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
             </div>
         </ng-template>
         <ng-template #exercisesFound>
-            <div class="grid md:grid-cols-2 2xl:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
                 <ng-container *ngFor="let exercise of exercises">
                     <mg-exercise-card [exercise]="exercise"></mg-exercise-card>
                 </ng-container>

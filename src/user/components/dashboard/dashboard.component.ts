@@ -71,15 +71,16 @@ export class DashboardComponent {
     }
 
     getExercices(muscle: string) {
-        this.exerciseService.getExercices(muscle).then(res => {
-            this.exercises = res.slice(0, 4);
-        })
+        this.exerciseService.getExercices(muscle)
+            .then(res => {
+                this.exercises = res.slice(0, 6);
+            })
     }
 
     getOpenGyms() {
         this.gymService.getOpenGyms()
             .then(json => {
-                this.openGyms = json.slice(0, 4);
+                this.openGyms = json.slice(0, 6);
             });
     }
 }
