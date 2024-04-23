@@ -18,7 +18,7 @@ import { ExerciseDetailsComponent } from "./exercise-details.component";
     template: `
     <mat-card class="bg-white !rounded-lg !shadow mt-5">
         <div class="p-4">
-            <p (click)="openExerciseDialog()" class="font-bold text-base !mb-0 cursor-pointer">{{exercise.name | titlecase }}</p>
+            <p (click)="openExerciseDialog()" class="font-bold text-base !mb-0 cursor-pointer" [attr.data-cy]="exercise.name.split(' ').join('-')">{{exercise.name | titlecase }}</p>
             <p *ngIf="exercise.bodyPart" class="font-normal text-md !mb-0">Muscle : <span class="font-light">{{exercise.bodyPart | titlecase}}</span></p>
         </div>
         <img mat-card-image (click)="openExerciseDialog()" src={{exercise.gifUrl}} alt={{exercise.name}} class="w-[300px] cursor-pointer">

@@ -24,7 +24,7 @@ import { MatIconModule } from "@angular/material/icon";
         <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-8 mt-6 text-gray-900">
             <img src={{exercise.gifUrl}} alt={{exercise.name}} class=''>
             <div class="flex flex-grow flex-col justify-between px-5 w-full">
-                <p class='text-lg md:text-2xl font-bold !mb-0'>{{exercise.name | titlecase }}</p>
+                <p class='text-lg md:text-2xl font-bold !mb-0' data-cy="exercise-name">{{exercise.name | titlecase }}</p>
                 <p class='font-light text-lg'>{{exercise.bodyPart | titlecase}}</p>
 
                 <div class="pt-2">

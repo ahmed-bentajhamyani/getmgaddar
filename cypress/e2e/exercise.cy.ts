@@ -52,4 +52,18 @@ describe('Exercise page', () => {
             })
         })
     });
+
+    it('should display selected exercise details matching the chosen exercise', function () {
+        cy.visit('/user')
+
+        cy.intercept('GET', URL + 'bodyPart/back').as('exercises')
+
+        cy.wait('@exercises').its('response.body').then((exercises) => {
+            const exerciseName = exercises[3].name
+
+            cy.get(`[data-cy=${exerciseName.split(' ').join('-')}]`).click()
+
+            cy.get('[data-cy="exercise-name"]').invoke('text').then((text) => expect(text.toLowerCase()).to.equal(exerciseName));
+        })
+    });
 });
