@@ -1,10 +1,4 @@
 describe('Signup page', () => {
-    after(() => {
-        cy.login("ahmedbentaj710@gmail.ma", "12345678")
-
-        cy.get('[data-cy="delete-user-btn"]').click()
-    })
-
     it('should show error message when email is missing', () => {
         cy.visit('/auth/signup')
 
@@ -42,10 +36,12 @@ describe('Signup page', () => {
         cy.signup("ahmedbentaj710@gmail.ma", "12345678")
 
         cy.url().should('include', '/user');
+
+        cy.get('[data-cy="delete-user-btn"]').click()
     });
 
     it('should show error message when the email is already in use or the password is too short', () => {
-        cy.signup("ahmed-bentaj@outlook.f", "123456")
+        cy.signup("ahmed-bentaj@outlook.fr", "123456")
 
         cy.get('[data-cy="signup-error-msg"]').should('exist');
     });
