@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: 'mg-home',
+    standalone: true,
     template: `
     <div class="relative h-screen">
         <div class="absolute inset-0 bg-cover bg-center bg-black" style="background-image: url('assets/cover.jpg');"></div>
