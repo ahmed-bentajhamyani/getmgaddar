@@ -1,33 +1,33 @@
-declare namespace Cypress {
-    interface Chainable<Subject = any> {
-        login(email: string, password: string): Chainable<any>;
-    }
-}
+import { AuthPage } from "cypress/pages/AuthPage";
+const authPage = new AuthPage()
 
-declare namespace Cypress {
-    interface Chainable<Subject = any> {
-        signup(email: string, password: string): Chainable<any>;
+declare global {
+    namespace Cypress {
+        interface Chainable<Subject = any> {
+            login(email: string, password: string): Chainable<any>;
+            signup(email: string, password: string): Chainable<any>;
+        }
     }
 }
 
 Cypress.Commands.add('login', (email: string, password: string) => {
     cy.visit('/auth/login')
 
-    cy.get('input[formControlName="email"]').type(email);
+    authPage.enterEmail(email);
 
-    cy.get('[data-cy="hide-password-btn"]').click();
-    cy.get('input[formControlName="password"]').type(password);
+    authPage.clickHidePasswordBtn();
+    authPage.enterPassword(password);
 
-    cy.get('[data-cy="submit-btn"]').click();
+    authPage.clickSubmitBtn();
 })
 
 Cypress.Commands.add('signup', (email: string, password: string) => {
     cy.visit('/auth/signup')
 
-    cy.get('input[formControlName="email"]').type(email);
+    authPage.enterEmail(email);
 
-    cy.get('[data-cy="hide-password-btn"]').click();
-    cy.get('input[formControlName="password"]').type(password);
+    authPage.elements.hidePasswordBtn().click();
+    authPage.enterPassword(password);
 
-    cy.get('[data-cy="submit-btn"]').click();
+    authPage.clickSubmitBtn();
 })
