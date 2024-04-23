@@ -22,7 +22,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
         </div>
         <mat-button-toggle-group name="bodyPart" aria-label="body part" value="back" (valueChange)="onSelectionChange($event)">
             <ng-container *ngFor="let bodyPart of bodyPartList">
-                <mat-button-toggle value={{bodyPart}}>{{bodyPart}}</mat-button-toggle>
+                <mat-button-toggle value={{bodyPart}} attr.data-cy={{bodyPart}}>{{bodyPart}}</mat-button-toggle>
             </ng-container>
         </mat-button-toggle-group>
 
