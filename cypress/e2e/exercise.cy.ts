@@ -34,11 +34,13 @@ describe('Exercise page', () => {
 
     it('get body part exercise should not return an empty array and the fetched exercises should match the body part requested', function () {
         cy.visit('/user')
-        cy.get('[data-cy="view-more-exrcises"]').click()
         cy.intercept('GET', URL + 'bodyPartList').as('bodyPartList')
+
+        cy.get('[data-cy="view-more-exrcises"]').click()
 
         cy.wait('@bodyPartList').its('response.body').then((bodyParts) => {
             const bodyPart = bodyParts[2]
+            cy.log(bodyPart)
 
             cy.get(`[data-cy=${bodyPart}]`).click()
 
@@ -46,7 +48,7 @@ describe('Exercise page', () => {
 
             cy.wait('@exercises').its('response.body').then((exercises) => {
                 expect(exercises).to.not.empty
-                
+
                 const bodyPartReceived = exercises[0].bodyPart
                 expect(bodyPart).to.eql(bodyPartReceived)
             })
